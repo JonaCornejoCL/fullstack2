@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido</title>
+    <title>Cafeta TiPum - Inicio</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
-    
+
+    <header>
+        <div class="logo">
+            <h1>Cafeta TiPum 🐾☕</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Producos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-usuario">
+            <a href="login.html">Iniciar Sesión</a> |
+            <a href="registro.html">Registrar usuario</a>
+            <a href="carrito.html">Carrito</a>
+        </div>
+    </header>
+
+    <main>
+        <!--Presentación-->
+        <section id="banner-principal">
+            <article>
+                <h2>Bienvenidos a Cafeta TiPum</h2>
+                <p>Inspirado en el amor incondicional de Titi y nuestro querido Pumita.</p>
+                <a href="productos.html" class="btn-primary">Ver nuestro menú</a>
+            </article>
+        </section>
+
+        <!-- Sección de los productos -->
+        <section id="catalogo-destacado">
+            <h2>Nuestras Especialidades</h2>
+            <!-- esto se llenará con JavaScript -->
+            <div id="contenedor-productos" class="grid-productos">
+                <!-- los productos aparecerán aquí -->
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Cafeta TiPum. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Vinculación de JS -->
+    <script src="js/app.js"></script>
+
+
+
 </body>
+
 </html>
