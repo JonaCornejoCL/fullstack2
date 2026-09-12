@@ -5,96 +5,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafeta TiPum - Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="img/logo-tipum.png" alt="Logo Cafeta TiPum">
+    <header class="bg-white border-bottom py-2">
+        <div class="container-fluid px-4 d-flex align-items-center justify-content-between">
+            
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <img src="img/logo-tipum.png" alt="Logo Cafeta TiPum" style="max-height: 50px;">
             </a>
+
+            <div class="d-none d-lg-flex align-items-center gap-4">
+                <a href="index.html" class="text-dark fw-bold text-decoration-none">Inicio</a>
+                <a href="productos.html" class="text-dark fw-bold text-decoration-none">Productos</a>
+                <a href="nosotros.html" class="text-dark fw-bold text-decoration-none">Nosotros</a>
+                <a href="blogs.html" class="text-dark fw-bold text-decoration-none">Blogs</a>
+                <a href="contacto.html" class="text-dark fw-bold text-decoration-none">Contacto</a>
+            </div>
+
+            <div class="d-none d-lg-flex align-items-center gap-3">
+                <a href="login.html" class="text-dark fw-bold text-decoration-none">Iniciar Sesión</a>
+                <span class="text-secondary">|</span>
+                <a href="registro.html" class="text-dark fw-bold text-decoration-none">Registrar usuario</a>
+                <a href="carrito.html" class="text-dark fw-bold text-decoration-none ms-2">🛒 Carrito</a>
+            </div>
+
+            <button class="btn btn-outline-dark d-lg-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#menuMovil" aria-controls="menuMovil" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </button>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+
+        <div class="collapse d-lg-none px-4 pt-3 pb-2 border-top mt-2" id="menuMovil">
+            <div class="d-flex flex-column gap-2 text-center">
+                <a href="index.html" class="text-dark fw-bold text-decoration-none py-1">Inicio</a>
+                <a href="productos.html" class="text-dark fw-bold text-decoration-none py-1">Productos</a>
+                <a href="nosotros.html" class="text-dark fw-bold text-decoration-none py-1">Nosotros</a>
+                <a href="blogs.html" class="text-dark fw-bold text-decoration-none py-1">Blogs</a>
+                <a href="contacto.html" class="text-dark fw-bold text-decoration-none py-1">Contacto</a>
+                <hr class="my-2">
+                <a href="login.html" class="text-dark fw-bold text-decoration-none py-1">Iniciar Sesión</a>
+                <a href="registro.html" class="text-dark fw-bold text-decoration-none py-1">Registrar usuario</a>
+                <a href="carrito.html" class="text-dark fw-bold text-decoration-none py-1">🛒 Carrito</a>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="seccion-registro">
-            <article class="formulario-contenedor">
-                <h2>NUEVO USUARIO</h2>
-                <p>Únete a la familia de Cafeta TiPum</p>
+    <main class="container mt-5 mb-5 d-flex justify-content-center">
+        <section id="seccion-login" class="w-100" style="max-width: 500px;">
+            <article class="formulario-contenedor shadow p-4 rounded bg-white">
+                <h2 class="text-center mb-2">NUEVO USUARIO</h2>
+                <p class="text-center text-muted mb-4">Únete a la familia de Cafeta TiPum</p>
 
                 <!-- formulario interactivo -->
                 <form id="formRegistro">
-                    <div class="grupo-form">
-                        <label for="run">RUN (Sin puntos ni guión):</label>
-                        <input type="text" id="run" name="run" placeholder="Ej: 19011022K" autocomplete="off">
-                        <span class="error" id="errorRun"></span>
+                    <div class="mb-3">
+                        <label for="run" class="form-label fw-bold">RUN (Sin puntos ni guión):</label>
+                        <input type="text" id="run" name="run" class="form-control" placeholder="Ej: 19011022K" autocomplete="off">
+                        <span class="error text-danger" id="errorRun"></span>
                     </div>
 
-                    <div class="grupo-form">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juanito"maxlength="50">
-                        <span class="error" id="errorNombre"></span>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label fw-bold">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej: Juanito" maxlength="50">
+                        <span class="error text-danger" id="errorNombre"></span>
                     </div>
 
-                    <div class="grupo-form">
-                        <label for="apellidos">Apellidos:</label>
-                        <input type="text" id="apellidos" name="apellidos" maxlength="100">
-                        <span class="error" id="errorApellidos"></span>
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label fw-bold">Apellidos:</label>
+                        <input type="text" id="apellidos" name="apellidos" class="form-control" maxlength="100">
+                        <span class="error text-danger" id="errorApellidos"></span>
                     </div>
 
-                    <div class="grupo-form">
-                        <label for="correo">Correo electrónico:</label>
-                        <input type="email" id="correo" name="correo" autocomplete="email">
-                        <span class="error" id="errorCorreo"></span>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label fw-bold">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" class="form-control" autocomplete="email">
+                        <span class="error text-danger" id="errorCorreo"></span>
                     </div>
 
-                    <div class="grupo-form">
-                        <label for="pass">Contraseña:</label>
-                        <input type="password" id="pass" name="pass">
-                        <span class="error" id="errorPass"></span>
+                    <div class="mb-3">
+                        <label for="fechaNacimiento" class="form-label fw-bold">Fecha de nacimiento (Opcional):</label>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control">
+                        <span class="error text-danger" id="errorFecha"></span>
                     </div>
 
-                    <div class="grupo-form">
-                        <label for="passConfirm">Confirmar Contraseña:</label>
-                        <input type="password" id="passConfirm" name="passConfirm">
-                        <span class="error" id="errorPassConfirm"></span>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label fw-bold">Dirección:</label>
+                        <textarea id="direccion" name="direccion" class="form-control" rows="2" maxlength="300" placeholder="Ej: Av. Directo al Liquid, Depto 420"></textarea>
+                        <span class="error text-danger" id="errorDireccion"></span>
                     </div>
 
-                    <div class="grupo-form">
-                        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                        <input type="date" id="fechaNacimiento" name="fechaNacimiento"><!--aquí va el required para la validación en HTML-->
-                        <span class="error" id="errorFecha"></span>
-                    </div>
-
-                    <div class="grupo-form">
-                        <label for="region">Región:</label>
-                        <select id="region" name="region">
+                    <div class="mb-3">
+                        <label for="region" class="form-label fw-bold">Región:</label>
+                        <select id="region" name="region" class="form-select">
                             <option value="">-- Seleccione una región --</option>
                         </select>
-                        <span class="error" id="errorRegion"></span>
+                        <span class="error text-danger" id="errorRegion"></span>
                     </div>
 
-                    <div class="grupo-form">
-                        <label for="comuna">Comuna:</label>
-                        <select id="comuna" name="comuna">
+                    <div class="mb-3">
+                        <label for="comuna" class="form-label fw-bold">Comuna:</label>
+                        <select id="comuna" name="comuna" class="form-select">
                             <option value="">-- Seleccione una comuna --</option>
                         </select>
-                        <span class="error" id="errorComuna"></span>
+                        <span class="error text-danger" id="errorComuna"></span>
                     </div>
 
-                    <button type="submit" class="btn-primary">REGISTRAR</button>
-                    <p id="mensajeExito" class="mt-3" style="color: green; display: none;">¡Usuario registrado con
-                        éxito!</p>
+                    <div class="mb-3">
+                        <label for="pass" class="form-label fw-bold">Contraseña:</label>
+                        <input type="password" id="pass" name="pass" class="form-control">
+                        <span class="error text-danger" id="errorPass"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="passConfirm" class="form-label fw-bold">Confirmar Contraseña:</label>
+                        <input type="password" id="passConfirm" name="passConfirm" class="form-control">
+                        <span class="error text-danger" id="errorPassConfirm"></span>
+                    </div>
+
+                    <!-- botón de registro -->
+                    <button type="submit" class="btn btn-primary w-100 mt-3" style="background-color: #d1321e; border-color: #d1321e;">Registrar en Cafeta TiPum</button>
+
+                    <!-- mensaje de éxito -->
+                    <p id="mensajeExito" class="mt-3 text-center fw-bold text-success" style="display: none;">¡Usuario registrado con éxito!</p>
                 </form>
             </article>
         </section>
@@ -104,8 +140,8 @@
         <p>&copy; 2026 Cafeta TiPum. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- validación estilo profe Hernán -->
-    <script src="js/validaciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/validaciones-tipum.js"></script>
 </body>
 
 </html>

@@ -294,3 +294,11 @@ header a:hover,
 nav a:hover {
     color: var(--color-rojo-tipum, #d9381e);
 }
+
+header ul, header li, header nav {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    float: none !important;
+    display: inline-block;
+}
