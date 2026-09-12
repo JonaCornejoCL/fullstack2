@@ -46,10 +46,12 @@ function cargarCatalogo() {
         articulo.classList.add('producto-card');
 
         articulo.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-            <h3>${producto.nombre}</h3>
+            <a href="detalle-producto.html" style="text-decoration: none; color: inherit;">
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <h3 class="mt-3">${producto.nombre}</h3>
+            </a>
             <p class="precio">$${producto.precio}</p>
-            <button class="btn btn-primary w-100" style="background-color: #d1321e; border-color: #d1321e;" onclick="agregarAlCarrito(${producto.id})">Añadir al carrito</button>
+            <button class="btn btn-primary w-100 mt-2" style="background-color: #d1321e; border-color: #d1321e;" onclick="agregarAlCarrito(${producto.id})">Añadir al carrito</button>
         `;
 
         contenedor.appendChild(articulo);
