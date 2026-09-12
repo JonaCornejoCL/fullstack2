@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarCatalogo();
 });
 
-// 1. arreglo de productos
+// 1. arreglo de productos (base de datos simulada)
 const menuTiPum = [
     {
         id: 1,
@@ -30,54 +30,60 @@ const menuTiPum = [
     }
 ];
 
-// 2. función para renderizar los productos dinámicamente
+// renderiza los productos en el HTML
 function cargarCatalogo() {
     const contenedor = document.getElementById('contenedor-productos');
 
-    // valida que el contenedor exista en la página actual
+    // alida que el contenedor exista en la página actual
     if (!contenedor) return;
 
-    // reset por si acaso
+    // rsetea el contenedor
     contenedor.innerHTML = '';
 
     // recorre el arreglo y crea las tarjetas
     menuTiPum.forEach(producto => {
-        // aquí se crea article
         const articulo = document.createElement('article');
         articulo.classList.add('producto-card');
 
-        // inyecta el contenido (imagen, nombre, precio y botón)
         articulo.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <h3>${producto.nombre}</h3>
             <p class="precio">$${producto.precio}</p>
-            <button class="btn-primary" onclick="agregarAlCarrito(${producto.id})">Añadir al carrito</button>
+            <button class="btn btn-primary w-100" style="background-color: #d1321e; border-color: #d1321e;" onclick="agregarAlCarrito(${producto.id})">Añadir al carrito</button>
         `;
 
         contenedor.appendChild(articulo);
     });
 }
 
+// para añadir al LocalStorage (carrito)
 function agregarAlCarrito(id) {
     const productoSeleccionado = menuTiPum.find(p => p.id === id);
+    
     if (productoSeleccionado) {
-        // 1. obtiene el carrito actual o crea uno vacío
+        // carrito actual o crea uno vacío
         let carrito = JSON.parse(localStorage.getItem('carritoMarket')) || [];
 
-        // 2. verifica si el producto ya está en el carrito
-        let productoExistente = carrito.find(p => p.id === id);
+        // verifica si el producto ya está en el carrito
+        let existe = carrito.findIndex(p => p.id === id);
 
-        if (productoExistente) {
-            productoExistente.cantidad += 1; // Si existe, suma 1 a la cantidad
+        if (existe !== -1) {
+            // le sumamos 1 a la cantidad
+            carrito[existe].cantidad += 1;
         } else {
-            // si no existe, agrega con cantidad 1
-            productoSeleccionado.cantidad = 1;
-            carrito.push(productoSeleccionado);
+            // agrega con cantidad 1
+            carrito.push({
+                id: productoSeleccionado.id,
+                nombre: productoSeleccionado.nombre,
+                precio: productoSeleccionado.precio,
+                imagen: productoSeleccionado.imagen,
+                cantidad: 1
+            });
         }
 
-        // 3. guarda de vuelta en localStorage
+        // guarda los cambios en el navegador
         localStorage.setItem('carritoMarket', JSON.stringify(carrito));
 
-        alert(`¡${productoSeleccionado.nombre} añadido al carrito de Cafeta TiPum!`);
+        alert(`¡${productoSeleccionado.nombre} fue añadido al carrito exitosamente!`);
     }
 }
