@@ -1,0 +1,188 @@
+/* VARIABLES DE COLOR*/
+:root {
+    --color-fondo: #FDFBF7; /* color crema*/
+    --color-rojo-tipum: #D9381E; /* rojo vibrante como el logo */
+    --color-cafe-oscuro: #3E2723; /* café tostado para los contrastes y textos */
+    --color-texto: #333333;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ESTILOS BASE*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* HEADER Y NAVEGACIÓN*/
+header {
+    background-color: #ffffff; /* fondon blanco para que el logo rojo resalte */
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /*sombra*/
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 60px; /* achica el logo a 60px*/
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* efecto al pasar el mouse por encima del logo*/
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--color-cafe-oscuro);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-rojo-tipum); /* el texto se vuelve rojo TiPum al pasar el mouse */
+}
+
+.acciones-usuario a {
+    color: var(--color-cafe-oscuro);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.acciones-usuario a:hover {
+    color: var(--color-rojo-tipum);
+}
+
+/*MAIN Y SECCIONES*/
+main {
+    min-height: 70vh;
+}
+
+/* banner principal */
+#banner-principal {
+    background-image: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80'); /* foto buscada en google jijiji */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 120px 20px;
+}
+
+#banner-principal h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#banner-principal p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* botón principal (rojo TiPum) */
+.btn-primary {
+    background-color: var(--color-rojo-tipum);
+    color: #ffffff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #b82b15; /* rojo más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+/* catálogo destacado */
+#catalogo-destacado {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#catalogo-destacado h2 {
+    color: var(--color-cafe-oscuro);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+/* carrusel o grilla (grid) de productos */
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.producto-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.producto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.producto-card h3 {
+    color: var(--color-cafe-oscuro);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.producto-card .precio {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-rojo-tipum); /* los precios en rojo para llamar la atención */
+    margin-bottom: 15px;
+}
+
+/* FOOTER*/
+footer {
+    background-color: var(--color-cafe-oscuro);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+}
