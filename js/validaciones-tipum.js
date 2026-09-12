@@ -223,9 +223,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (mensajeLoginExito) mensajeLoginExito.style.display = "none";
 
-            // validacion del correo de login
-            let correoLogin = document.getElementById("correoLogin").value.trim();
+            let correoLogin = document.getElementById("emailSecreto").value.trim();
+            let passLogin = document.getElementById("claveSecreta").value.trim();
+            
             let errorCorreoLogin = document.getElementById("errorCorreoLogin");
+            let errorPassLogin = document.getElementById("errorPassLogin");
+
+            // vsaid dominios
             let dominioValido = correoLogin.endsWith("@duoc.cl") ||
                 correoLogin.endsWith("@profesor.duoc.cl") ||
                 correoLogin.endsWith("@gmail.com");
@@ -238,10 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 errorCorreoLogin.textContent = "";
             }
 
-            // validacion de la contraseña de login
-            let passLogin = document.getElementById("passLogin").value.trim();
-            let errorPassLogin = document.getElementById("errorPassLogin");
-
+            // valida contraseña
             if (passLogin === "" || passLogin.length < 4 || passLogin.length > 10) {
                 errorPassLogin.textContent = "La contraseña es obligatoria (entre 4 y 10 caracteres).";
                 errorPassLogin.style.color = "red";
@@ -250,15 +251,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 errorPassLogin.textContent = "";
             }
 
-            // envío exitoso
             if (validacionCorrecta) {
-                // muestra el mensaje de éxito
-                if (mensajeLoginExito) mensajeLoginExito.style.display = "block";
-
-                // redirige al administrador después de 1.5 segundos
-                setTimeout(() => {
-                    window.location.href = "admin-producto.html";
-                }, 1500);
+                
+                // forza la comprobación exacta del admin
+                if (correoLogin === "admin@duoc.cl" && passLogin === "admin123") {
+                    if (mensajeLoginExito) {
+                        mensajeLoginExito.textContent = "¡Bienvenido Administrador! Redirigiendo al panel...";
+                        mensajeLoginExito.style.color = "green";
+                        mensajeLoginExito.style.display = "block";
+                    }
+                    setTimeout(() => {
+                        window.location.replace("admin-producto.html"); 
+                    }, 1500);
+                } else {
+                    if (mensajeLoginExito) {
+                        mensajeLoginExito.textContent = "¡Ingreso exitoso! Redirigiendo a la tienda...";
+                        mensajeLoginExito.style.color = "blue";
+                        mensajeLoginExito.style.display = "block";
+                    }
+                    setTimeout(() => { 
+                        window.location.replace("index.html"); 
+                    }, 1500);
+                }
+                
+                formLogin.reset();
             }
         });
     }
