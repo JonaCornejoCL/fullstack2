@@ -52,7 +52,7 @@
     <main class="container my-5">
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="productos.html" class="text-decoration-none text-muted">Productos</a></li>
                 <li class="breadcrumb-item active fw-bold" aria-current="page" id="breadcrumb-nombre">Café Latte Pumita</li>
             </ol>
@@ -60,18 +60,19 @@
 
         <section class="bg-white p-4 rounded shadow-sm border border-light">
             <div class="row align-items-center">
+
                 <div class="col-md-6 mb-4 mb-md-0 text-center">
-                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&q=80" alt="Café Latte Pumita" class="img-fluid rounded shadow-sm" style="max-height: 400px; object-fit: cover;">
+                    <img id="detalle-imagen" src="" alt="Cargando..." class="img-fluid rounded shadow-sm" style="max-height: 400px; object-fit: cover;">
                 </div>
                 
                 <div class="col-md-6 px-lg-5">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h2 class="fw-bold mb-0" style="color: #3E2723;">Café Latte Pumita</h2>
-                        <h3 class="fw-bold text-danger mb-0">$2500</h3>
+                        <h2 id="detalle-nombre" class="fw-bold mb-0" style="color: #3E2723;">Cargando...</h2>
+                        <h3 id="detalle-precio" class="fw-bold text-danger mb-0">$0</h3>
                     </div>
                     
-                    <p class="text-muted mb-4 fs-5" style="line-height: 1.6;">
-                        El favorito de la casa. Un exquisito café de especialidad preparado con granos arábicos seleccionados, leche texturizada y un toque de amor inspirado en nuestro querido Pumita. Ideal para acompañar tus tardes.
+                    <p id="detalle-descripcion" class="text-muted mb-4 fs-5" style="line-height: 1.6;">
+                        Delicioso producto de especialidad de Cafeta TiPum.
                     </p>
                     
                     <div class="d-flex align-items-center gap-3 mb-4">
@@ -79,13 +80,10 @@
                         <select id="cantidadProducto" class="form-select w-auto fw-bold">
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
                         </select>
                     </div>
                     
-                    <button class="btn btn-primary w-100 py-3 fs-5 fw-bold text-uppercase rounded-3 shadow-sm" style="background-color: #d1321e; border-color: #d1321e;" onclick="agregarAlCarrito(1)">
+                    <button id="btn-agregar-detalle" class="btn btn-primary w-100 py-3 fs-5 fw-bold text-uppercase rounded-3 shadow-sm" style="background-color: #d1321e; border-color: #d1321e;">
                         Añadir al carrito
                     </button>
                 </div>
