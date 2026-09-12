@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeta TiPum - Carrito de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo-tipum.png" alt="Logo Cafeta TiPum">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="carrito.html" class="active">🛒 Carrito</a>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section>
+            <h2 class="mb-4">Tu Carrito de Cafeta TiPum</h2>
+            
+            <!-- tabla donde se inyectarán los productos del carrito -->
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-carrito">
+                        <!-- los ítems se cargan con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- resumen de compra y botón de pago -->
+            <div class="d-flex justify-content-between align-items-center mt-4 p-3 bg-light rounded">
+                <h4>Total a Pagar: <span id="total-carrito">$0</span></h4>
+                <button class="btn btn-success btn-lg" onclick="finalizarCompra()">Proceder al Pago</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cafeta TiPum. Todos los derechos reservados.</p>
+    </footer>
+
+
+    <script src="js/carrito.js" defer></script>
+</body>
+</html>
