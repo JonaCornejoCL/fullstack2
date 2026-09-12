@@ -178,6 +178,83 @@ main {
     margin-bottom: 15px;
 }
 
+/* FORMULARIOS (Registro, Login, Contacto)*/
+#seccion-registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.formulario-contenedor {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 500px;
+    border-top: 6px solid var(--color-rojo-tipum);
+}
+
+.formulario-contenedor h2 {
+    color: var(--color-cafe-oscuro);
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+.formulario-contenedor p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.grupo-form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-form label {
+    font-weight: 600;
+    color: var(--color-cafe-oscuro);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.grupo-form input {
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: var(--fuente-principal);
+    background-color: #fafafa;
+}
+
+.grupo-form input:focus {
+    outline: none;
+    border-color: var(--color-rojo-tipum);
+    box-shadow: 0 0 0 3px rgba(217, 56, 30, 0.15); /* resplandor rojo Tipum */
+    background-color: #ffffff;
+}
+
+.error {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    min-height: 18px; /* evita que el formulario salte cuando aparece el error */
+    font-weight: 500;
+}
+
+/* botón del formulario más grande, ocupa todo el ancho */
+.formulario-contenedor .btn-primary {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
 /* FOOTER*/
 footer {
     background-color: var(--color-cafe-oscuro);
