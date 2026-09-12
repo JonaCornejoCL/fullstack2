@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeta TiPum - Dashboard Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="bg-light">
+    <!-- navbar del admin -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="index.html">Cafeta TiPum (Admin)</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navAdmin">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navAdmin">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-warning fw-bold active" href="admin-dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-bold" href="admin-producto.html">Gestión Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-bold" href="admin-usuario.html">Gestión Usuarios</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-light btn-sm mt-1" href="index.html">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <h2 class="mb-4">Panel de Control (Dashboard)</h2>
+
+        <!-- métricas -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 bg-primary text-white p-3">
+                    <h6 class="text-uppercase fw-bold">Ventas Totales</h6>
+                    <h3 class="mb-0" id="totalVentas">$1.450.900</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 bg-success text-white p-3">
+                    <h6 class="text-uppercase fw-bold">Productos Registrados</h6>
+                    <h3 class="mb-0" id="cantProductos">12</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 bg-warning text-dark p-3">
+                    <h6 class="text-uppercase fw-bold">Usuarios Activos</h6>
+                    <h3 class="mb-0" id="cantUsuarios">8</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 bg-danger text-white p-3">
+                    <h6 class="text-uppercase fw-bold">Pedidos Pendientes</h6>
+                    <h3 class="mb-0">3</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- pedidos ficticios -->
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0 fw-bold">Últimas Transacciones</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th># Pedido</th>
+                                <th>Cliente</th>
+                                <th>Fecha</th>
+                                <th>Monto</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1001</td>
+                                <td>Juan Pérez</td>
+                                <td>12/09/2026</td>
+                                <td>$8.990</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1002</td>
+                                <td>María González</td>
+                                <td>12/09/2026</td>
+                                <td>$14.500</td>
+                                <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1003</td>
+                                <td>Carlos Rojas</td>
+                                <td>11/09/2026</td>
+                                <td>$5.200</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

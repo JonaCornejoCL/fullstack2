@@ -329,33 +329,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // envío exitoso
             if (validacionCorrecta) {
-                // verifica si es el super usuario administrador
-                if (correoLogin === "admin@duoc.cl" && passLogin === "admin123") {
-                    if (mensajeLoginExito) {
-                        mensajeLoginExito.textContent = "¡Bienvenido Administrador! Redirigiendo al panel...";
-                        mensajeLoginExito.style.color = "green";
-                        mensajeLoginExito.style.display = "block";
-                    }
-
-                    // vista de administrador
-                    setTimeout(() => {
-                        window.location.href = "admin-producto.html";
-                    }, 1500);
-                } else {
-                    // si se ingresa cualquier otro correo válido, es cliente
-                    if (mensajeLoginExito) {
-                        mensajeLoginExito.textContent = "¡Ingreso exitoso! Redirigiendo a la tienda...";
-                        mensajeLoginExito.style.color = "blue";
-                        mensajeLoginExito.style.display = "block";
-                    }
-
-                    // salta a la página principal de la tienda
-                    setTimeout(() => { window.location.href = "index.html"; }, 1500);
-                }
-
-                // limpia el form
-                formLogin.reset();
-            }
+    if (mensajeContactoExito) {
+        mensajeContactoExito.textContent = "¡Mensaje enviado con éxito! Te responderemos a la brevedad.";
+        mensajeContactoExito.style.color = "green";
+        mensajeContactoExito.style.display = "block";
+    }
+    formContacto.reset();
+}
         });
     }
 });
