@@ -36,6 +36,8 @@ header {
 
 .logo img {
     height: 60px; /* achica el logo a 60px*/
+    width: auto;  /* permite que el ancho se ajuste proporcionalmente */
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
