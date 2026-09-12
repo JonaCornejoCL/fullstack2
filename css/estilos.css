@@ -1,8 +1,11 @@
 /* VARIABLES DE COLOR*/
 :root {
-    --color-fondo: #FDFBF7; /* color crema*/
-    --color-rojo-tipum: #D9381E; /* rojo vibrante como el logo */
-    --color-cafe-oscuro: #3E2723; /* café tostado para los contrastes y textos */
+    --color-fondo: #FDFBF7;
+    /* color crema*/
+    --color-rojo-tipum: #D9381E;
+    /* rojo vibrante como el logo */
+    --color-cafe-oscuro: #3E2723;
+    /* café tostado para los contrastes y textos */
     --color-texto: #333333;
     --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -23,26 +26,31 @@ body {
 
 /* HEADER Y NAVEGACIÓN*/
 header {
-    background-color: #ffffff; /* fondon blanco para que el logo rojo resalte */
+    background-color: #ffffff;
+    /* fondon blanco para que el logo rojo resalte */
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /*sombra*/
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /*sombra*/
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .logo img {
-    height: 60px; /* achica el logo a 60px*/
-    width: auto;  /* permite que el ancho se ajuste proporcionalmente */
+    height: 60px;
+    /* achica el logo a 60px*/
+    width: auto;
+    /* permite que el ancho se ajuste proporcionalmente */
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .logo img:hover {
-    transform: scale(1.05); /* efecto al pasar el mouse por encima del logo*/
+    transform: scale(1.05);
+    /* efecto al pasar el mouse por encima del logo*/
 }
 
 nav ul {
@@ -60,7 +68,8 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--color-rojo-tipum); /* el texto se vuelve rojo TiPum al pasar el mouse */
+    color: var(--color-rojo-tipum);
+    /* el texto se vuelve rojo TiPum al pasar el mouse */
 }
 
 .acciones-usuario a {
@@ -82,7 +91,8 @@ main {
 
 /* banner principal */
 #banner-principal {
-    background-image: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80'); /* foto buscada en google jijiji */
+    background-image: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80');
+    /* foto buscada en google jijiji */
     background-size: cover;
     background-position: center;
     color: #ffffff;
@@ -93,7 +103,7 @@ main {
 #banner-principal h2 {
     font-size: 3rem;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #banner-principal p {
@@ -120,7 +130,8 @@ main {
 }
 
 .btn-primary:hover {
-    background-color: #b82b15; /* rojo más oscuro al pasar el mouse */
+    background-color: #b82b15;
+    /* rojo más oscuro al pasar el mouse */
     transform: translateY(-2px);
 }
 
@@ -149,14 +160,14 @@ main {
     background-color: #ffffff;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #f0f0f0;
 }
 
 .producto-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
 
 .producto-card img {
@@ -176,7 +187,8 @@ main {
 .producto-card .precio {
     font-size: 1.4rem;
     font-weight: bold;
-    color: var(--color-rojo-tipum); /* los precios en rojo para llamar la atención */
+    color: var(--color-rojo-tipum);
+    /* los precios en rojo para llamar la atención */
     margin-bottom: 15px;
 }
 
@@ -192,7 +204,7 @@ main {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     width: 100%;
     max-width: 500px;
     border-top: 6px solid var(--color-rojo-tipum);
@@ -238,14 +250,16 @@ main {
 .grupo-form input:focus {
     outline: none;
     border-color: var(--color-rojo-tipum);
-    box-shadow: 0 0 0 3px rgba(217, 56, 30, 0.15); /* resplandor rojo Tipum */
+    box-shadow: 0 0 0 3px rgba(217, 56, 30, 0.15);
+    /* resplandor rojo Tipum */
     background-color: #ffffff;
 }
 
 .error {
     font-size: 0.85rem;
     margin-top: 5px;
-    min-height: 18px; /* evita que el formulario salte cuando aparece el error */
+    min-height: 18px;
+    /* evita que el formulario salte cuando aparece el error */
     font-weight: 500;
 }
 
@@ -264,4 +278,19 @@ footer {
     text-align: center;
     padding: 30px 20px;
     margin-top: auto;
+}
+
+/* ESTILOS GLOBALES DE ENLACES Y HEADER*/
+header a,
+.user-actions a,
+nav a {
+    color: var(--color-cafe-oscuro, #2c2c2c);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header a:hover,
+.user-actions a:hover,
+nav a:hover {
+    color: var(--color-rojo-tipum, #d9381e);
 }
