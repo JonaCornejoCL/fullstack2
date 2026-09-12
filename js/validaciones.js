@@ -257,4 +257,60 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // VALIDACIÓN DEL FORMULARIO DE CONTACTO
+    const formContacto = document.getElementById("formContacto");
+
+    if (formContacto) {
+        formContacto.addEventListener("submit", function (evento) {
+            evento.preventDefault();
+            let validacionCorrecta = true;
+            const mensajeContactoExito = document.getElementById("mensajeContactoExito");
+
+            if (mensajeContactoExito) mensajeContactoExito.style.display = "none";
+
+            // validación del nombre de contacto
+            let nombreContacto = document.getElementById("nombreContacto").value.trim();
+            let errorNombreContacto = document.getElementById("errorNombreContacto");
+            if (nombreContacto === "" || nombreContacto.length > 100) {
+                errorNombreContacto.textContent = "El nombre es obligatorio (Máx. 100 caracteres).";
+                errorNombreContacto.style.color = "red";
+                validacionCorrecta = false;
+            } else {
+                errorNombreContacto.textContent = "";
+            }
+
+            // validación del correo de contacto
+            let correoContacto = document.getElementById("correoContacto").value.trim();
+            let errorCorreoContacto = document.getElementById("errorCorreoContacto");
+            let dominioValido = correoContacto.endsWith("@duoc.cl") || 
+                                correoContacto.endsWith("@profesor.duoc.cl") || 
+                                correoContacto.endsWith("@gmail.com");
+
+            if (correoContacto === "" || correoContacto.length > 100 || !dominioValido) {
+                errorCorreoContacto.textContent = "Usa un correo válido (@duoc.cl, @profesor.duoc.cl o @gmail.com).";
+                errorCorreoContacto.style.color = "red";
+                validacionCorrecta = false;
+            } else {
+                errorCorreoContacto.textContent = "";
+            }
+
+            // validación del comentario
+            let comentarioContacto = document.getElementById("comentarioContacto").value.trim();
+            let errorComentarioContacto = document.getElementById("errorComentarioContacto");
+            if (comentarioContacto === "" || comentarioContacto.length > 500) {
+                errorComentarioContacto.textContent = "El mensaje es obligatorio (Máx. 500 caracteres).";
+                errorComentarioContacto.style.color = "red";
+                validacionCorrecta = false;
+            } else {
+                errorComentarioContacto.textContent = "";
+            }
+
+            // envío exitoso
+            if (validacionCorrecta) {
+                if (mensajeContactoExito) mensajeContactoExito.style.display = "block";
+                formContacto.reset();
+            }
+        });
+    }
 });
