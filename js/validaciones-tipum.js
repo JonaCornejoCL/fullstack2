@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let fechaInput = document.getElementById("fechaNacimiento").value;
             let errorFecha = document.getElementById("errorFecha");
 
-            if (fechaInput !== "") { 
+            if (fechaInput !== "") {
                 let fechaNac = new Date(fechaInput);
                 let hoy = new Date();
                 let edad = hoy.getFullYear() - fechaNac.getFullYear();
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     errorFecha.textContent = "";
                 }
             } else {
-                errorFecha.textContent = ""; 
+                errorFecha.textContent = "";
             }
 
             // validacion de la región
@@ -217,18 +217,18 @@ document.addEventListener("DOMContentLoaded", function () {
     if (formLogin) {
         formLogin.addEventListener("submit", function (evento) {
             evento.preventDefault();
-            
+
             let validacionCorrecta = true;
             const mensajeLoginExito = document.getElementById("mensajeLoginExito");
-            
+
             if (mensajeLoginExito) mensajeLoginExito.style.display = "none";
 
             // validacion del correo de login
             let correoLogin = document.getElementById("correoLogin").value.trim();
             let errorCorreoLogin = document.getElementById("errorCorreoLogin");
-            let dominioValido = correoLogin.endsWith("@duoc.cl") || 
-                                correoLogin.endsWith("@profesor.duoc.cl") || 
-                                correoLogin.endsWith("@gmail.com");
+            let dominioValido = correoLogin.endsWith("@duoc.cl") ||
+                correoLogin.endsWith("@profesor.duoc.cl") ||
+                correoLogin.endsWith("@gmail.com");
 
             if (correoLogin === "" || correoLogin.length > 100 || !dominioValido) {
                 errorCorreoLogin.textContent = "Usa un correo válido (@duoc.cl, @profesor.duoc.cl o @gmail.com).";
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 errorCorreoLogin.textContent = "";
             }
 
-            // validacion de la contraseña de Login
+            // validacion de la contraseña de login
             let passLogin = document.getElementById("passLogin").value.trim();
             let errorPassLogin = document.getElementById("errorPassLogin");
 
@@ -252,8 +252,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // envío exitoso
             if (validacionCorrecta) {
+                // muestra el mensaje de éxito
                 if (mensajeLoginExito) mensajeLoginExito.style.display = "block";
-                formLogin.reset();
+
+                // redirige al administrador después de 1.5 segundos
+                setTimeout(() => {
+                    window.location.href = "admin-producto.html";
+                }, 1500);
             }
         });
     }
@@ -283,9 +288,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // validación del correo de contacto
             let correoContacto = document.getElementById("correoContacto").value.trim();
             let errorCorreoContacto = document.getElementById("errorCorreoContacto");
-            let dominioValido = correoContacto.endsWith("@duoc.cl") || 
-                                correoContacto.endsWith("@profesor.duoc.cl") || 
-                                correoContacto.endsWith("@gmail.com");
+            let dominioValido = correoContacto.endsWith("@duoc.cl") ||
+                correoContacto.endsWith("@profesor.duoc.cl") ||
+                correoContacto.endsWith("@gmail.com");
 
             if (correoContacto === "" || correoContacto.length > 100 || !dominioValido) {
                 errorCorreoContacto.textContent = "Usa un correo válido (@duoc.cl, @profesor.duoc.cl o @gmail.com).";
@@ -308,8 +313,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // envío exitoso
             if (validacionCorrecta) {
-                if (mensajeContactoExito) mensajeContactoExito.style.display = "block";
-                formContacto.reset();
+                // verifica si es el super usuario administrador
+                if (correoLogin === "admin@duoc.cl" && passLogin === "admin123") {
+                    if (mensajeLoginExito) {
+                        mensajeLoginExito.textContent = "¡Bienvenido Administrador! Redirigiendo al panel...";
+                        mensajeLoginExito.style.color = "green";
+                        mensajeLoginExito.style.display = "block";
+                    }
+
+                    // vista de administrador
+                    setTimeout(() => {
+                        window.location.href = "admin-producto.html";
+                    }, 1500);
+                } else {
+                    // si se ingresa cualquier otro correo válido, es cliente
+                    if (mensajeLoginExito) {
+                        mensajeLoginExito.textContent = "¡Ingreso exitoso! Redirigiendo a la tienda...";
+                        mensajeLoginExito.style.color = "blue";
+                        mensajeLoginExito.style.display = "block";
+                    }
+
+                    // salta a la página principal de la tienda
+                    setTimeout(() => { window.location.href = "index.html"; }, 1500);
+                }
+
+                // limpia el form
+                formLogin.reset();
             }
         });
     }
