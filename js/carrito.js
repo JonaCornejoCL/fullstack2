@@ -22,7 +22,6 @@ function cargarCarrito() {
         let subtotal = producto.precio * producto.cantidad;
         sumaTotal += subtotal;
 
-        const fila = document.tr; // corrección para crear elementos de tabla
         const tr = document.createElement("tr");
         
         tr.innerHTML = `
