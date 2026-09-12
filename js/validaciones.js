@@ -122,6 +122,63 @@ document.addEventListener("DOMContentLoaded", function () {
             errorPassConfirm.textContent = "";
         }
 
+        // 7. valida la fecha de nacimiento (mayor a 18 y menor a 120)
+        let fechaInput = document.getElementById("fechaNacimiento").value;
+        let errorFecha = document.getElementById("errorFecha");
+
+        if (fechaInput === "") {
+            errorFecha.textContent = "La fecha de nacimiento es obligatoria.";
+            errorFecha.style.color = "red";
+            validacionCorrecta = false;
+        } else {
+            // calcula la edad exacta
+            let fechaNac = new Date(fechaInput);
+            let hoy = new Date();
+            let edad = hoy.getFullYear() - fechaNac.getFullYear();
+            let diferenciaMeses = hoy.getMonth() - fechaNac.getMonth();
+
+            // sii el mes actual es menor al del cumpleaños, o si es el mismo mes pero el día aún no llega, restamos 1 año
+            if (diferenciaMeses < 0 || (diferenciaMeses === 0 && hoy.getDate() < fechaNac.getDate())) {
+                edad--;
+            }
+
+            if (edad < 18) {
+                errorFecha.textContent = "Debes tener al menos 18 años para registrarte en Cafeta TiPum.";
+                errorFecha.style.color = "red";
+                validacionCorrecta = false;
+            } else if (edad > 120) {
+                errorFecha.textContent = "Por favor, ingresa una fecha de nacimiento válida (menor a 120 años).";
+                errorFecha.style.color = "red";
+                validacionCorrecta = false;
+            } else {
+                errorFecha.textContent = "";
+            }
+        }
+
+        // 8. valida la región
+        let regionInput = document.getElementById("region").value;
+        let errorRegion = document.getElementById("errorRegion");
+
+        if (regionInput === "") {
+            errorRegion.textContent = "Por favor, selecciona una región válida.";
+            errorRegion.style.color = "red";
+            validacionCorrecta = false;
+        } else {
+            errorRegion.textContent = "";
+        }
+
+        // 9. valida la comuna
+        let comunaInput = document.getElementById("comuna").value;
+        let errorComuna = document.getElementById("errorComuna");
+
+        if (comunaInput === "") {
+            errorComuna.textContent = "Por favor, selecciona una comuna válida.";
+            errorComuna.style.color = "red";
+            validacionCorrecta = false;
+        } else {
+            errorComuna.textContent = "";
+        }
+
 
         // y si todo está correcto
         if (validacionCorrecta) {

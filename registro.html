@@ -42,7 +42,7 @@
 
                     <div class="grupo-form">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" maxlength="50">
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juanito"maxlength="50">
                         <span class="error" id="errorNombre"></span>
                     </div>
 
@@ -72,13 +72,13 @@
 
                     <div class="grupo-form">
                         <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento"><!--aquí va el required para la validación en HTML-->
                         <span class="error" id="errorFecha"></span>
                     </div>
 
                     <div class="grupo-form">
                         <label for="region">Región:</label>
-                        <select id="region" name="region" required>
+                        <select id="region" name="region">
                             <option value="">-- Seleccione una región --</option>
                         </select>
                         <span class="error" id="errorRegion"></span>
@@ -86,7 +86,7 @@
 
                     <div class="grupo-form">
                         <label for="comuna">Comuna:</label>
-                        <select id="comuna" name="comuna" required>
+                        <select id="comuna" name="comuna">
                             <option value="">-- Seleccione una comuna --</option>
                         </select>
                         <span class="error" id="errorComuna"></span>
