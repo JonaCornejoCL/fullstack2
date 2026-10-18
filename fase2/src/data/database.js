@@ -175,14 +175,16 @@ export const guardarCarrito = (carrito) => {
 
 export const agregarItemAlCarrito = (producto, cantidad = 1) => {
   const carrito = obtenerCarrito();
-  const index = carrito.findIndex((item) => item.id === producto.id);
+  const index = carrito.findIndex((item) => item.id === Number(producto.id));
+  const precioFinal = producto.enOferta && producto.precioOferta ? Number(producto.precioOferta) : Number(producto.precio);
+
   if (index !== -1) {
     carrito[index].cantidad += Number(cantidad);
   } else {
     carrito.push({
-      id: producto.id,
+      id: Number(producto.id),
       nombre: producto.nombre,
-      precio: producto.enOferta && producto.precioOferta ? producto.precioOferta : producto.precio,
+      precio: precioFinal,
       imagen: producto.imagen,
       cantidad: Number(cantidad)
     });
@@ -191,27 +193,27 @@ export const agregarItemAlCarrito = (producto, cantidad = 1) => {
   return carrito;
 };
 
-export const obtenerOrdenes = () => {
-  const guardadas = localStorage.getItem("ordenesTipum");
-  if (!guardadas) {
-    localStorage.setItem("ordenesTipum", JSON.stringify(ORDENES_INICIALES));
-    return ORDENES_INICIALES;
-  }
-  return JSON.parse(guardadas);
-};
+export const actualizarCantidadItemCarrito = (producto, nuevaCantidad) => {
+  let carrito = obtenerCarrito();
+  const idNum = Number(producto.id);
+  const index = carrito.findIndex((item) => item.id === idNum);
+  const precioFinal = producto.enOferta && producto.precioOferta ? Number(producto.precioOferta) : Number(producto.precio);
 
-export const registrarOrden = (nuevaOrden) => {
-  const ordenes = obtenerOrdenes();
-  const ordenCompleta = {
-    ...nuevaOrden,
-    id: Math.floor(1000 + Math.random() * 9000),
-    codigo: "ORDER" + Math.floor(10000 + Math.random() * 90000),
-    fecha: new Date().toLocaleDateString("es-CL")
-  };
-  const actualizadas = [ordenCompleta, ...ordenes];
-  localStorage.setItem("ordenesTipum", JSON.stringify(actualizadas));
-  localStorage.setItem("ultimaOrdenTipum", JSON.stringify(ordenCompleta));
-  return ordenCompleta;
+  if (nuevaCantidad <= 0) {
+    carrito = carrito.filter((item) => item.id !== idNum);
+  } else if (index !== -1) {
+    carrito[index].cantidad = Number(nuevaCantidad);
+  } else {
+    carrito.push({
+      id: idNum,
+      nombre: producto.nombre,
+      precio: precioFinal,
+      imagen: producto.imagen,
+      cantidad: Number(nuevaCantidad)
+    });
+  }
+  guardarCarrito(carrito);
+  return carrito;
 };
 
 // ================= VALIDADORES DE REGLAS DE NEGOCIO =================

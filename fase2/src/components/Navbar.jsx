@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { obtenerCarrito } from '../data/database'
 
 function Navbar() {
@@ -24,6 +24,13 @@ function Navbar() {
     }
   }, [])
 
+  // Estilo para el enlace activo en el menú
+  const obtenerEstiloActivo = ({ isActive }) => ({
+    color: isActive ? '#D9381E' : '#333333',
+    fontWeight: 'bold',
+    textDecoration: 'none'
+  })
+
   return (
     <header className="bg-white border-bottom py-2 sticky-top shadow-sm">
       <div className="container-fluid px-4 d-flex flex-wrap align-items-center justify-content-between">
@@ -38,13 +45,13 @@ function Navbar() {
         </Link>
 
         <nav className="d-flex flex-wrap align-items-center gap-3 my-2 my-lg-0">
-          <Link to="/" className="text-dark fw-bold text-decoration-none">Inicio</Link>
-          <Link to="/productos" className="text-dark fw-bold text-decoration-none">Productos</Link>
-          <Link to="/categorias" className="text-dark fw-bold text-decoration-none">Categorías</Link>
-          <Link to="/ofertas" className="text-danger fw-bold text-decoration-none">Ofertas</Link>
-          <Link to="/nosotros" className="text-dark fw-bold text-decoration-none">Nosotros</Link>
-          <Link to="/blogs" className="text-dark fw-bold text-decoration-none">Blogs</Link>
-          <Link to="/contacto" className="text-dark fw-bold text-decoration-none">Contacto</Link>
+          <NavLink to="/" style={obtenerEstiloActivo} end>Inicio</NavLink>
+          <NavLink to="/productos" style={obtenerEstiloActivo}>Productos</NavLink>
+          <NavLink to="/categorias" style={obtenerEstiloActivo}>Categorías</NavLink>
+          <NavLink to="/ofertas" style={obtenerEstiloActivo}>Ofertas</NavLink>
+          <NavLink to="/nosotros" style={obtenerEstiloActivo}>Nosotros</NavLink>
+          <NavLink to="/blogs" style={obtenerEstiloActivo}>Blogs</NavLink>
+          <NavLink to="/contacto" style={obtenerEstiloActivo}>Contacto</NavLink>
         </nav>
 
         <div className="d-flex align-items-center gap-2">
