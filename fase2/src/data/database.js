@@ -240,3 +240,13 @@ export const validaDominioCorreo = (correo) => {
   const c = correo.trim().toLowerCase();
   return c.endsWith("@duoc.cl") || c.endsWith("@profesor.duoc.cl") || c.endsWith("@gmail.com");
 };
+
+export const registrarOrden = (nuevaOrden) => {
+  const ordenes = JSON.parse(localStorage.getItem("ordenesMarket")) || [];
+  ordenes.push(nuevaOrden);
+  localStorage.setItem("ordenesMarket", JSON.stringify(ordenes));
+};
+
+export const obtenerOrdenes = () => {
+  return JSON.parse(localStorage.getItem("ordenesMarket")) || [];
+};
